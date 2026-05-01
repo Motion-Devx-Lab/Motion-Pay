@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShapPOS | Instant Payments</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ShapPOS</h1>
+            <p>Siyakwamukela / Welcome</p>
+        </header>
+
+        <section class="amount-input">
+            <label>Enter Amount (ZAR)</label>
+            <input type="number" id="amount" placeholder="0.00" step="0.01">
+        </section>
+
+        <section class="button-grid">
+            <button onclick="setAmount(10)">+ R10</button>
+            <button onclick="setAmount(50)">+ R50</button>
+            <button onclick="generateQR()" class="pay-btn">Generate QR</button>
+        </section>
+
+        <div id="qr-area" class="hidden">
+            <h3>Scan with your Banking App</h3>
+            <div id="canvas"></div> 
+            <button id="copy-btn" onclick="copyShapID()" style="margin-top: 20px; padding: 12px; background: #00a859; color: white; border: none; border-radius: 8px; width: 100%; font-weight: bold; cursor: pointer;">
+                📋 Copy ShapID (0711196825)
+            </button>
+
+            <p style="font-size: 0.8rem; color: #666; margin-top: 10px; text-align: center;">
+                If scanning fails, tap "Copy" and paste in your PayShap menu.
+            </p>
+
+            <div id="payment-instructions" style="margin-top: 15px; text-align: left; font-size: 0.85rem; color: #444; border-top: 1px solid #eee; padding-top: 10px;">
+                <strong>Next Steps:</strong>
+                <ol style="padding-left: 20px; margin-top: 5px;">
+                    <li>Open your Banking App</li>
+                    <li>Go to <strong>PayShap</strong></li>
+                    <li>Select <strong>Pay a ShapID</strong></li>
+                    <li>Paste and <strong>Confirm</strong></li>
+                </ol>
+            </div>
+            <button onclick="reset()">New Sale</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

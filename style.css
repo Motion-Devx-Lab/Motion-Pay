@@ -1,0 +1,66 @@
+:root {
+    --primary: #00a859;
+    /* Trust-worthy Green */
+    --dark: #1a1a1a;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    font-size: 3rem;
+    border: none;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--dark);
+    font-weight: bold;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+button {
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.pay-btn {
+    grid-column: span 2;
+    background: var(--primary);
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+#canvas {
+    padding: 20px;
+    background: white;
+    display: inline-block;
+}
