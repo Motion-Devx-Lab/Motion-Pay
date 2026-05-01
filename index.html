@@ -44,6 +44,25 @@
                     <li>Paste and <strong>Confirm</strong></li>
                 </ol>
             </div>
+            <div class="whatsapp-section" style="margin-top: 20px; border-top: 1px solid #444; padding-top: 20px;">
+    
+    <button onclick="sendWhatsApp('business')" style="background: #075E54; color: white; width: 100%; border: none; border-radius: 8px; padding: 14px; font-weight: bold; margin-bottom: 15px; cursor: pointer;">
+        💼 J4RISE STUDIOS
+    </button>
+
+    <button onclick="toggleClientPhone()" style="background: #25D366; color: white; width: 100%; border: none; border-radius: 8px; padding: 14px; font-weight: bold; margin-bottom: 15px; cursor: pointer;">
+        💬 Send to Preferred Number
+    </button>
+
+    <div id="client-phone-section" style="display: none;">
+        <input type="tel" id="client-phone" placeholder="Enter Client Phone (e.g. 2782...)" 
+            style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #555; background: #222; color: white; box-sizing: border-box;">
+        
+        <button onclick="sendWhatsApp('personal')" style="background: #25D366; color: white; width: 100%; border: none; border-radius: 8px; padding: 14px; font-weight: bold; cursor: pointer;">
+            💬 Open Chat
+        </button>
+    </div>
+</div>
             <button onclick="reset()">New Sale</button>
         </div>
     </div>

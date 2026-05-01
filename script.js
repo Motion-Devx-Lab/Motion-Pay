@@ -1,7 +1,7 @@
 // --- CONFIGURATION ---
 // 1. Put your cell number here. 
 // Most banks prefer the full 10 digits (e.g., 0711196825)
-const myShapID = "0711196825"; 
+const myShapID = "0711511859"; 
 
 // 2. Put your Business/Studio Name here (no spaces)
 const myName = "j4rise_studios"; 
@@ -16,7 +16,7 @@ function generateQR() {
     if(!amountInput) return alert("Please enter an amount.");
 
     const amount = parseFloat(amountInput).toFixed(2);
-    const shapID = "0711196825"; // Your confirmed number
+    const shapID = "0711511859"; // Your confirmed number
     const merchantName = "J4RISE STUDIOS"; 
 
     /* EMVCo Tag Breakdown for PayShap 2026:
@@ -90,7 +90,7 @@ function showSuccess() {
 }
 
 function copyShapID() {
-    const shapID = "0711196825";
+    const shapID = "0711511859";
     
     navigator.clipboard.writeText(shapID).then(() => {
         const btn = document.getElementById('copy-btn');
@@ -99,12 +99,40 @@ function copyShapID() {
 
         // Reset the button after 2 seconds
         setTimeout(() => {
-            btn.innerText = "📋 Copy ShapID (0711196825)";
+            btn.innerText = "📋 Copy ShapID (" + myShapID + ")";
             btn.style.background = "#00a859";
         }, 2000);
     }).catch(err => {
-        alert("Manual copy: 0711196825");
+        alert("Manual copy: 0711511859");
     });
+}
+
+function sendWhatsApp(type) {
+    const amount = document.getElementById('amount').value || "0";
+    const shapID = "0711511859";
+    const clientPhone = document.getElementById('client-phone').value.trim();
+    
+    // The Professional Message
+    const message = `Hi! Here are the payment details for J4RISE STUDIOS:%0A%0A💰 Amount: R${amount}%0A🔑 PayShap ID: ${shapID}%0A%0A1. Paste the ID into your bank app under 'Pay a ShapID'.%0A2. Enter the Amount (R${amount}) into the 'Amount' section.%0A%0AThank you!`;
+
+    if (type === 'business') {
+        // Quick link to your own Business number
+        window.open(`https://wa.me/${shapID}?text=${message}`, '_blank');
+    } else {
+        // Validation check for client number
+        if (!clientPhone) {
+            alert("Please enter a phone number first!");
+            return;
+        }
+        // Cleans the number (removes spaces/+ signs) and opens the chat
+        const cleanNumber = clientPhone.replace(/\D/g, '');
+        window.open(`https://wa.me/${cleanNumber}?text=${message}`, '_blank');
+    }
+}
+
+function toggleClientPhone() {
+    const section = document.getElementById('client-phone-section');
+    section.style.display = section.style.display === 'none' ? 'block' : 'none';
 }
 
 function reset() {
